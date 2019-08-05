@@ -3,7 +3,7 @@ import './user-item.component.scss';
 
 const UserItem = props => {
 
-        const { login, name, avatar_url, profile_url } = props.user;
+        const { login, name, avatar_url, html_url } = props.user;
 
         return (
             <div className="card ">
@@ -11,7 +11,7 @@ const UserItem = props => {
                 <div className="card-body">
                     <h4 className="card-title">{login}</h4>
                     <p className="card-text">{name}</p>
-                    <a href={profile_url} className="btn btn-primary">See Profile</a>
+                    <a href={html_url} className="btn btn-primary">See Profile</a>
                 </div>
             </div>
         )
