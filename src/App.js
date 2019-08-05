@@ -16,8 +16,14 @@ class App extends React.Component {
 
   async componentDidMount() {
     this.setState({ loading: true });
+
     const res = await axios.get('https://api.github.com/users');
-    this.setState({users: res.data, loading: false});
+
+    setTimeout(() => {
+      this.setState({users: res.data, loading: false});  
+    }, 2000);
+
+    
 
     console.log(this.state.users);     
   }
@@ -29,9 +35,10 @@ class App extends React.Component {
           <Navbar></Navbar>        
         </nav>
 
-        <div className="users-container container">
-          <Users users={this.state.users} loading={this.state.loading} />
-        </div>
+          <div className="users-container container">
+            <Users users={this.state.users} loading={this.state.loading} />
+          </div>
+        
       </div>  
       
     );
